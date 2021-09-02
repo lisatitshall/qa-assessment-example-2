@@ -12,7 +12,11 @@
     # one("punctation, or something?", " ,?") → "punctuation__or_something_"
 
 def one(word, chars):
-    pass
+    charlist = [char for char in word]
+    for i in range(len(word)):
+        if charlist[i] in chars:
+            charlist[i] = '_'
+    return ''.join(charlist)
 
     # <QUESTION 2>
 
@@ -30,7 +34,11 @@ def one(word, chars):
     # There are 86,400 seconds in a day, and 3600 seconds in an hour
 
 def two(total_seconds):
-    pass
+    days = total_seconds // 86400
+    hours = (total_seconds - (days * 86400)) // 3600
+    minutes = (total_seconds - (days * 86400) - (hours * 3600)) // 60
+    seconds = total_seconds - (days * 86400) - (hours * 3600) - (minutes * 60)
+    return (days, hours, minutes, seconds)
 
     # <QUESTION 3>
 
@@ -47,7 +55,7 @@ def two(total_seconds):
     # Dictionaries have methods that can be used to get their keys, values, or items
 
 def three(dictionary):
-    pass
+    return {value:key for (key, value) in dictionary.items()}
 
     # <QUESTION 4>
 
@@ -64,7 +72,9 @@ def three(dictionary):
     # four(-10) → 5
 
 def four(number):
-    pass
+    mag_num = abs(number)
+    factors = [i for i in range(1, mag_num) if mag_num % i == 0]
+    return factors[-1]
 
     # <QUESTION 5>
 
@@ -77,7 +87,8 @@ def four(number):
     # four('hello world!') → ' '
 
 def five(chars):
-    pass
+    list = [ord(char) for char in chars]
+    return chr(min(list))
 
     # <QUESTION 6>
 
@@ -93,4 +104,15 @@ def five(chars):
     # six('hello world, how are you?', 20) → ['hello world, how are', 'you?']
     
 def six(paragraph, limit):
-    pass
+    wordlist = paragraph.split()
+    pagelist = []
+    page = ''
+    while wordlist != []:
+        if len(page) + len(wordlist[0]) <= limit:
+            page += (wordlist[0] + ' ')
+            wordlist.remove(wordlist[0])
+        else:
+            pagelist.append(page[0:-1])
+            page = ''
+    pagelist.append(page[0:-1])
+    return pagelist

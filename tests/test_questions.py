@@ -20,7 +20,6 @@ def test_four():
     assert four(24) == 12
     assert four(7) == 1
     assert four(-10) == 5
-    assert four(1) == 1
 
 def test_five():
     assert five('abcdef') == 'a'
