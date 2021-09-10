@@ -60,6 +60,7 @@ def two(total_seconds):
     # Dictionaries have methods that can be used to get their keys, values, or items
 
 def three(dictionary):
+    return {v:k for k,v in dictionary.items()}
     pass
 
     # <QUESTION 4>
