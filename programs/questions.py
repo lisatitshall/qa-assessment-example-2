@@ -101,6 +101,8 @@ def four(number):
     # four('hello world!') → ' '
 
 def five(chars):
+    asciidict = {letter : ord(letter) for letter in chars}
+    return min(asciidict, key=asciidict.get)
     pass
 
     # <QUESTION 6>
