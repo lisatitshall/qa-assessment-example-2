@@ -34,6 +34,15 @@ def one(word, chars):
     # There are 86,400 seconds in a day, and 3600 seconds in an hour
 
 def two(total_seconds):
+    i = 0
+    times = [86400, 3600, 60, 1]
+    floorlist = []
+    while i < 4:
+        floor = (total_seconds) // times[i]
+        floorlist.append(floor)
+        total_seconds = total_seconds % times[i]
+        i+=1
+    return tuple(floorlist)  
     pass
 
     # <QUESTION 3>
