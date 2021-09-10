@@ -78,6 +78,16 @@ def three(dictionary):
     # four(-10) → 5
 
 def four(number):
+    factors = []
+    number = abs(number)
+    if number == 1:
+        return number
+    else:
+        for i in range(1,number):
+            if (number % i == 0):
+                 factors.append(i)
+    factors.sort()
+    return factors[-1]
     pass
 
     # <QUESTION 5>
