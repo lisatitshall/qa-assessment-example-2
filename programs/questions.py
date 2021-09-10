@@ -12,6 +12,10 @@
     # one("punctation, or something?", " ,?") → "punctuation__or_something_"
 
 def one(word, chars):
+    for letter in chars:
+        word = word.replace(letter, "_")
+    return word
+
     pass
 
     # <QUESTION 2>
